@@ -15,4 +15,15 @@ yarn init -y
 yarn add next react react-dom
 ```
 
+[coolors.co](https://coolors.co/)
+
+
+```
+yarn add @skynexui/components
+```
+
+```
+npx gitignore node
+```
+
 <hr>
