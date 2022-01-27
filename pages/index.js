@@ -5,6 +5,7 @@ import appConfig from '../config.json';
 
 function Titulo(props) {
   const Tag = props.tag || 'h1';
+  
   return (
     <>
       <Tag>{props.children}</Tag>
@@ -21,7 +22,6 @@ function Titulo(props) {
 }
 
 export default function PaginaInicial() {
-  // const username = 'lucasrmagalhaes';
   const [username, setUsername] = React.useState('lucasrmagalhaes');
   const roteamento = useRouter();
 

@@ -1,4 +1,4 @@
-### Matrix Chat: Imersão React 4 - Alura
+### Hobbit Chat: Imersão React 4 - Alura
 
 <hr>
 
@@ -31,5 +31,11 @@ npx gitignore node
 #### Aula 02 - State, novas páginas e navegação SPA vs a Tradicional
 
 [custom-app](https://nextjs.org/docs/advanced-features/custom-app)
+
+<hr>
+
+#### Aula 03 - Chat offline? Aprimorando as habilidades com State
+
+
 
 <hr>
