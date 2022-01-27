@@ -27,3 +27,9 @@ npx gitignore node
 ```
 
 <hr>
+
+#### Aula 02 - State, novas páginas e navegação SPA vs a Tradicional
+
+[custom-app](https://nextjs.org/docs/advanced-features/custom-app)
+
+<hr>
