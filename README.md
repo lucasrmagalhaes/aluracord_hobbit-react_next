@@ -36,6 +36,34 @@ npx gitignore node
 
 #### Aula 03 - Chat offline? Aprimorando as habilidades com State
 
+<hr>
 
+#### Aula 04 - Integrando com o Supabase
+* [supabase](https://supabase.com/)
+* [api.github](https://api.github.com/users/lucasrmagalhaes)
+
+```javascript
+fetch('https://api.github.com/users/lucasrmagalhaes')
+.then(async (respostaDoServidor) => {
+    const respostaEsperada = await respostaDoServidor.json();
+    console.log(respostaEsperada);
+})
+```
+
+* [supabase-js](https://github.com/supabase/supabase-js)
+
+```
+yarn add @supabase/supabase-js
+```
+
+```js
+supabaseClient
+    .from('tabela')
+    .select('*')
+    .then((dados) => {
+        console.log('Dados da consulta: ', dados);
+    });
+
+```
 
 <hr>
