@@ -6,15 +6,23 @@ import { useRouter } from 'next/router';
 import { createClient } from '@supabase/supabase-js';
 import { ButtonSendSticker } from '../components/ButtonSendSticker';
 
-export default function ChatPage() {
-    const WALLPAPER = process.env.NEXT_PUBLIC_WALLPAPER;
-    const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+export async function getServerSideProps() {
+    const SUPABASE_URL = process.env.SUPABASE_URL;
+    const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
 
+    return {
+        props: {
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        }
+    }
+}
+
+export default function ChatPage({ SUPABASE_URL, SUPABASE_ANON_KEY }) {
     const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-    
+    const bg = process.env.NEXT_PUBLIC_BG;
     const roteamento = useRouter();
-    const usuarioLogado = roteamento.query.username;
+    const usuarioLogado = roteamento.query.username ? roteamento.query.username : '';
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
 
@@ -75,7 +83,7 @@ export default function ChatPage() {
             <Box
                 styleSheet={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    backgroundImage: `url(${WALLPAPER})`,
+                    backgroundImage: `url(${bg})`,
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                     color: appConfig.theme.colors.neutrals['000']
                 }}
