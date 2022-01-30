@@ -6,26 +6,26 @@ import { useRouter } from 'next/router';
 import { createClient } from '@supabase/supabase-js';
 import { ButtonSendSticker } from '../components/ButtonSendSticker';
 
-const wallpaper = process.env.NEXT_PUBLIC_WALLPAPER;
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-const supabaseClient = createClient(url, anonKey);
-
-function escutaMensagensEmTempoReal(adicionaMensagem) {
-    return supabaseClient
-      .from('mensagens')
-      .on('INSERT', (respostaLive) => {
-        adicionaMensagem(respostaLive.new);
-      })
-      .subscribe();
-}
-
 export default function ChatPage() {
+    const wallpaper = process.env.NEXT_PUBLIC_WALLPAPER;
+    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+    const supabaseClient = createClient(url, anonKey);
+    
     const roteamento = useRouter();
     const usuarioLogado = roteamento.query.username;
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
+
+    function escutaMensagensEmTempoReal(adicionaMensagem) {
+        return supabaseClient
+          .from('mensagens')
+          .on('INSERT', (respostaLive) => {
+            adicionaMensagem(respostaLive.new);
+          })
+          .subscribe();
+    }
 
     React.useEffect(() => {
         supabaseClient
