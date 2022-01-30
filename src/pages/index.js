@@ -1,7 +1,8 @@
 import { Box, Button, Text, TextField, Image } from '@skynexui/components';
 import React from 'react';
+import Head from "next/head"
 import { useRouter } from 'next/router';
-import appConfig from '../config.json';
+import appConfig from '../../config.json';
 
 function Titulo(props) {
   const Tag = props.tag || 'h1';
@@ -28,6 +29,10 @@ export default function PaginaInicial() {
 
   return (
     <>
+      <Head>
+        <title>Aluracord</title>
+      </Head>
+
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
@@ -55,9 +60,7 @@ export default function PaginaInicial() {
             as="form"
             onSubmit={function (infosDoEvento) {
               infosDoEvento.preventDefault();
-              roteamento.push('/chat')
-
-              // window.location.href = "/chat";
+              roteamento.push(`/chat?username=${username}`);
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
