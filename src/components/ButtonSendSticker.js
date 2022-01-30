@@ -14,7 +14,7 @@ export function ButtonSendSticker(props) {
       <Button
         styleSheet={{
           borderRadius: '50%',
-          padding: '0 3px 0 0',
+          padding: '0 0 0 0',
           minWidth: '50px',
           minHeight: '50px',
           fontSize: '20px',
@@ -22,13 +22,9 @@ export function ButtonSendSticker(props) {
           lineHeight: '0',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.neutrals[300],
-          filter: isOpen ? 'grayscale(0)' : 'grayscale(1)',
-          hover: {
-            filter: 'grayscale(0)',
-          }
+          justifyContent: 'center'
         }}
+        size='lg'
         label="👻"
         onClick={() => setOpenState(!isOpen)}
       />
@@ -39,10 +35,11 @@ export function ButtonSendSticker(props) {
             flexDirection: 'column',
             borderRadius: '5px',
             position: 'absolute',
-            backgroundColor: appConfig.theme.colors.neutrals[800],
+            backgroundColor: appConfig.theme.colors.neutrals[900],
             width: {
               xs: '200px',
               sm: '290px',
+              lg: '350px'
             },
             height: '300px',
             right: '30px',
@@ -56,6 +53,7 @@ export function ButtonSendSticker(props) {
             styleSheet={{
               color: appConfig.theme.colors.neutrals["000"],
               fontWeight: 'bold',
+              textAlign: 'center'
             }}
           >
             Stickers
@@ -79,16 +77,19 @@ export function ButtonSendSticker(props) {
                     props.onStickerClick(sticker);
                   }
                 }}
-                tag="li" key={sticker}
+                tag="li" 
+                key={sticker}
                 styleSheet={{
-                  width: '50%',
+                  width: '90%',
+                  height: 'auto',
                   borderRadius: '5px',
-                  padding: '10px',
+                  padding: '5px',
+                  backgroundColor: appConfig.theme.colors.neutrals[800],
                   focus: {
-                    backgroundColor: appConfig.theme.colors.neutrals[600],
+                    backgroundColor: '#800000',
                   },
                   hover: {
-                    backgroundColor: appConfig.theme.colors.neutrals[600],
+                    backgroundColor: '#800000',
                   }
                 }}
               >

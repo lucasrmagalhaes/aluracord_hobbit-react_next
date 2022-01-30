@@ -9,6 +9,21 @@ function GlobalStyle() {
                 list-style: none;
             }
 
+            ::-webkit-scrollbar {
+                width: 13px;
+            }
+
+            ::-webkit-scrollbar-track {
+                background:black;
+                border-radius: 3px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background-color: #800000;
+                border-radius: 3px;
+                border: 2px solid black;
+            }
+
             body {
                 font-family: 'Open Sans', sans-serif;
             }
