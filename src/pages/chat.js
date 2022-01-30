@@ -7,11 +7,11 @@ import { createClient } from '@supabase/supabase-js';
 import { ButtonSendSticker } from '../components/ButtonSendSticker';
 
 export default function ChatPage() {
-    const wallpaper = process.env.WALLPAPER;
-    const url = process.env.SUPABASE_URL;
-    const anonKey = process.env.SUPABASE_ANON_KEY;
+    const WALLPAPER = process.env.NEXT_PUBLIC_WALLPAPER;
+    const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-    const supabaseClient = createClient(url, anonKey);
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
     
     const roteamento = useRouter();
     const usuarioLogado = roteamento.query.username;
@@ -75,7 +75,7 @@ export default function ChatPage() {
             <Box
                 styleSheet={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    backgroundImage: `url(${wallpaper})`,
+                    backgroundImage: `url(${WALLPAPER})`,
                     backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                     color: appConfig.theme.colors.neutrals['000']
                 }}
