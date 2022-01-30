@@ -67,3 +67,19 @@ supabaseClient
 ```
 
 <hr>
+
+#### Aula 05 - Adicionando suporte para Stickers
+
+
+#### ENV
+```
+NEXT_PUBLIC_WALLPAPER
+```
+
+```
+NEXT_PUBLIC_SUPABASE_URL
+```
+
+```
+NEXT_PUBLIC_SUPABASE_ANON_KEY
+```
