@@ -12,12 +12,12 @@ function Titulo(props) {
       <Tag>{props.children}</Tag>
 
       <style jsx>{`
-            ${Tag} {
-                color: ${appConfig.theme.colors.neutrals['000']};
-                font-size: 24px;
-                font-weight: 600;
-            }
-            `}</style>
+        ${Tag} {
+          color: ${appConfig.theme.colors.neutrals['000']};
+          font-size: 24px;
+          font-weight: 600;
+        }
+      `}</style>
     </>
   );
 }
@@ -25,7 +25,7 @@ function Titulo(props) {
 export default function PaginaInicial() {
   const [username, setUsername] = React.useState('lucasrmagalhaes');
   const roteamento = useRouter();
-  const wallpaper = process.env.NEXT_PUBLIC_WALLPAPER;
+  const WALLPAPER = process.env.NEXT_PUBLIC_WALLPAPER;
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function PaginaInicial() {
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundImage: `url(${wallpaper})`,
+          backgroundImage: `url(${WALLPAPER})`,
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
@@ -71,18 +71,6 @@ export default function PaginaInicial() {
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               {appConfig.name}
             </Text>
-            
-            {/* <input 
-              type="text"
-              value={username}
-              onChange={function (event) {
-                //console.log(event.target.value)
-
-                const valor = event.target.value;
-                
-                setUsername(valor);
-              }}
-            /> */}
             
             <TextField
               fullWidth
