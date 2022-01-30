@@ -7,9 +7,9 @@ import { createClient } from '@supabase/supabase-js';
 import { ButtonSendSticker } from '../components/ButtonSendSticker';
 
 export default function ChatPage() {
-    const wallpaper = process.env.NEXT_PUBLIC_WALLPAPER;
-    const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+    const wallpaper = process.env.WALLPAPER;
+    const url = process.env.SUPABASE_URL;
+    const anonKey = process.env.SUPABASE_ANON_KEY;
 
     const supabaseClient = createClient(url, anonKey);
     
