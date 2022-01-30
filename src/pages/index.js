@@ -23,9 +23,9 @@ function Titulo(props) {
 }
 
 export default function PaginaInicial() {
-  const [username, setUsername] = React.useState('lucasrmagalhaes');
+  const [username, setUsername] = React.useState('');
   const roteamento = useRouter();
-  const WALLPAPER = process.env.NEXT_PUBLIC_WALLPAPER;
+  const bg = process.env.NEXT_PUBLIC_BG;
 
   return (
     <>
@@ -36,7 +36,7 @@ export default function PaginaInicial() {
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundImage: `url(${WALLPAPER})`,
+          backgroundImage: `url(${bg})`,
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
