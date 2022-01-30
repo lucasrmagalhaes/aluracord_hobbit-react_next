@@ -70,6 +70,7 @@ supabaseClient
 
 #### Aula 05 - Adicionando suporte para Stickers
 
+<hr>
 
 #### ENV
 ```
