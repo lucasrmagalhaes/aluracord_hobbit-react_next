@@ -24,14 +24,14 @@ function Titulo(props) {
 export default function PaginaInicial() {
   const [username, setUsername] = React.useState('lucasrmagalhaes');
   const roteamento = useRouter();
+  const wallpaper = process.env.NEXT_PUBLIC_WALLPAPER;
 
   return (
     <>
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          // backgroundColor: appConfig.theme.colors.primary[500],
-          backgroundImage: 'url(https://images4.alphacoders.com/794/794739.jpg)',
+          backgroundImage: `url(${wallpaper})`,
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
       >
