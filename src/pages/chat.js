@@ -77,14 +77,22 @@ export default function ChatPage({ SUPABASE_URL, SUPABASE_ANON_KEY }) {
     return (
         <>
             <Head>
-                <title>Aluracord - Chat</title>
+                <meta charSet="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <link rel="shortcut icon" href={"/images/favicon.ico"} type="image/x-icon" />
+
+                <title>Aluracord | Chat</title>
             </Head>
             
             <Box
                 styleSheet={{
-                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    display: 'flex', 
+                    alignItems: 'center', 
+                    justifyContent: 'center',
                     backgroundImage: `url(${bg})`,
-                    backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
+                    backgroundRepeat: 'no-repeat', 
+                    backgroundSize: 'cover', 
+                    backgroundBlendMode: 'multiply',
                     color: appConfig.theme.colors.neutrals['000']
                 }}
             >
@@ -95,11 +103,12 @@ export default function ChatPage({ SUPABASE_URL, SUPABASE_ANON_KEY }) {
                         flex: 1,
                         boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
                         borderRadius: '5px',
-                        backgroundColor: appConfig.theme.colors.neutrals[700],
+                        backgroundColor: appConfig.theme.colors.neutrals[800],
                         height: '100%',
                         maxWidth: '95%',
                         maxHeight: '95vh',
                         padding: '32px',
+                        opacity: '0.9'
                     }}
                 >
                     <Header />
@@ -110,10 +119,10 @@ export default function ChatPage({ SUPABASE_URL, SUPABASE_ANON_KEY }) {
                             display: 'flex',
                             flex: 1,
                             height: '80%',
-                            backgroundColor: appConfig.theme.colors.neutrals[600],
+                            backgroundColor: appConfig.theme.colors.neutrals[700],
                             flexDirection: 'column',
                             borderRadius: '5px',
-                            padding: '16px',
+                            padding: '16px'
                         }}
                     >
                         <MessageList mensagens={listaDeMensagens} />
@@ -122,7 +131,7 @@ export default function ChatPage({ SUPABASE_URL, SUPABASE_ANON_KEY }) {
                             as="form"
                             styleSheet={{
                                 display: 'flex',
-                                alignItems: 'center',
+                                alignItems: 'center'
                             }}
                         >
                             <TextField
@@ -137,17 +146,17 @@ export default function ChatPage({ SUPABASE_URL, SUPABASE_ANON_KEY }) {
                                         handleNovaMensagem(mensagem);
                                     }
                                 }}
-                                placeholder="Insira sua mensagem aqui..."
+                                placeholder="Insira sua mensagem..."
                                 type="textarea"
                                 styleSheet={{
                                     width: '100%',
                                     border: '0',
                                     resize: 'none',
                                     borderRadius: '5px',
-                                    padding: '6px 8px',
-                                    backgroundColor: appConfig.theme.colors.neutrals[800],
+                                    padding: '8px 8px',
+                                    backgroundColor: appConfig.theme.colors.neutrals[100],
                                     marginRight: '12px',
-                                    color: appConfig.theme.colors.neutrals[200],
+                                    color: appConfig.theme.colors.neutrals[900],
                                 }}
                             />
 
@@ -167,14 +176,20 @@ export default function ChatPage({ SUPABASE_URL, SUPABASE_ANON_KEY }) {
 function Header() {
     return (
         <>
-            <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
+            <Box styleSheet={{ 
+                width: '100%', 
+                marginBottom: '16px', 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between' 
+            }} >
                 <Text variant='heading5'>
                     Chat
                 </Text>
                 
                 <Button
-                    variant='tertiary'
-                    colorVariant='neutral'
+                    variant='primary'
+                    colorVariant='light'
                     label='Logout'
                     href="/"
                 />
@@ -193,7 +208,7 @@ function MessageList(props) {
                 flexDirection: 'column-reverse',
                 flex: 1,
                 color: appConfig.theme.colors.neutrals["000"],
-                marginBottom: '16px',
+                marginBottom: '16px'
             }}
         >
             {props.mensagens.map((mensagem) => {
@@ -203,10 +218,11 @@ function MessageList(props) {
                         tag="li"
                         styleSheet={{
                             borderRadius: '5px',
+                            fontSize: '20px',
                             padding: '6px',
                             marginBottom: '12px',
                             hover: {
-                                backgroundColor: appConfig.theme.colors.neutrals[700],
+                                backgroundColor: appConfig.theme.colors.neutrals[900],
                             }
                         }}
                     >
@@ -218,8 +234,8 @@ function MessageList(props) {
                         >
                             <Image
                                 styleSheet={{
-                                    width: '20px',
-                                    height: '20px',
+                                    width: '40px',
+                                    height: '40px',
                                     borderRadius: '50%',
                                     display: 'inline-block',
                                     marginRight: '8px',
@@ -227,15 +243,17 @@ function MessageList(props) {
                                 src={`https://github.com/${mensagem.de}.png`}
                             />
 
-                            <Text tag="strong">
+                            <Text 
+                                tag="strong"
+                            >
                                 {mensagem.de}
                             </Text>
 
                             <Text
                                 styleSheet={{
-                                    fontSize: '10px',
+                                    fontSize: '14px',
                                     marginLeft: '8px',
-                                    color: appConfig.theme.colors.neutrals[300],
+                                    color: appConfig.theme.colors.neutrals[200],
                                 }}
                                 tag="span"
                             >
@@ -249,7 +267,7 @@ function MessageList(props) {
                                 <Image 
                                     src={mensagem.texto.replace(':sticker:', '')} 
                                     styleSheet={{
-                                        width: '150px'
+                                        width: '400px'
                                     }}
                                 />
                             ) : (
